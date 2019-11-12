@@ -4,15 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ui.MainActivity"
     android:background="#FFEB3B"
     >
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/Toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        >
+
+    </androidx.appcompat.widget.Toolbar>
+    
+    
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/RecyclerView_main"
         android:layout_margin="5dp"
+        android:layout_below="@+id/Toolbar_main"
         >
     </androidx.recyclerview.widget.RecyclerView>
 

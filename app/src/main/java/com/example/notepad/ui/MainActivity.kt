@@ -1,4 +1,4 @@
-package com.example.notepad
+package com.example.notepad.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -7,10 +7,15 @@ import android.os.Bundle
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import android.annotation.SuppressLint
+import androidx.appcompat.widget.Toolbar
 
 import androidx.recyclerview.widget.RecyclerView
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.notepad.*
+import com.example.notepad.model.ModelNote
+import com.example.notepad.util.BaseInterface
+import com.example.notepad.util.MyAdapter
+import kotlinx.android.synthetic.main.activity_save.view.*
 
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -19,6 +24,7 @@ class MainActivity : AppCompatActivity(), BaseInterface {
     private lateinit var mAddFab: FloatingActionButton
     private lateinit var recyclerView: RecyclerView
     private lateinit var mAdapter: MyAdapter
+    private lateinit var mToolbar: Toolbar
     override fun initListen() {
         mAddFab.setOnClickListener {
             val i = Intent(this, SaveActivity::class.java)
@@ -30,6 +36,7 @@ class MainActivity : AppCompatActivity(), BaseInterface {
     override fun initUi() {
         mAddFab = findViewById(R.id.floatingActionButton_main)
         recyclerView = findViewById(R.id.RecyclerView_main)
+        mToolbar = findViewById(R.id.Toolbar_main)
     }
 
 
@@ -39,12 +46,18 @@ class MainActivity : AppCompatActivity(), BaseInterface {
         initUi()
         initListen()
         setupRecyclerView()
+        setToolbar()
     }
 
     private fun setupRecyclerView() = with(recyclerView) {
         layoutManager = LinearLayoutManager(context)
         mAdapter = MyAdapter()
         adapter = mAdapter
+    }
+
+    private fun setToolbar() {
+        mToolbar.title = "NotePad"
+        setSupportActionBar(mToolbar)
     }
 
 

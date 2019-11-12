@@ -4,63 +4,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SaveActivity">
+    tools:context=".ui.SaveActivity">
 
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/Title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="Title"
-        android:inputType="text"
-        android:maxLength="60"
-        android:maxLines="1"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/Toolbar_save"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.appcompat.widget.AppCompatEditText>
+    </androidx.appcompat.widget.Toolbar>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/Text"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayout_save_title"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="Text"
-        android:maxLength="150"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Toolbar_save">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextInputEditText_save_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="title"
+            tools:layout_editor_absoluteX="35dp"
+            tools:layout_editor_absoluteY="240dp"
+            android:inputType="textMultiLine"
+            android:textSize="14dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_Save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="#3F51B5"
+        android:text="Save"
+        android:textColor="#DDD4D4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Title">
 
-    </androidx.appcompat.widget.AppCompatEditText>
+        />
 
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton_save"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_gravity="bottom|end"
-        android:clickable="true"
-        android:src="@drawable/ic_check_black_24dp"
-        app:backgroundTint="#ffa48bc0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Title"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/TextInputLayout_save_title"
+        app:layout_constraintStart_toStartOf="@+id/TextInputLayout_save_title"
+        app:layout_constraintTop_toBottomOf="@+id/Toolbar_save" />
 
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInputLayout_save_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="80dp"
+        app:hintEnabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/button_Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayout_save_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextInputEditText_save_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start|top"
+            android:hint="text"
+            tools:layout_editor_absoluteX="35dp"
+            tools:layout_editor_absoluteY="240dp"
+            android:inputType="textMultiLine"
+            android:textSize="14dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Text"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/TextInputLayout_save_text"
+        app:layout_constraintStart_toStartOf="@+id/TextInputLayout_save_text"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayout_save_title" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

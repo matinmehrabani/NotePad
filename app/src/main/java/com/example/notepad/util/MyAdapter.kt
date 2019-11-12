@@ -1,4 +1,4 @@
-package com.example.notepad
+package com.example.notepad.util
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notepad.R
+import com.example.notepad.model.ModelNote
 
 class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 

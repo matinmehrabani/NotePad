@@ -1,4 +1,4 @@
-package com.example.notepad
+package com.example.notepad.model
 
 import android.os.Parcelable
 import android.widget.TextView
