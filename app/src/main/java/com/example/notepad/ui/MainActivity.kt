@@ -11,8 +11,10 @@ import androidx.appcompat.widget.Toolbar
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.example.notepad.*
 import com.example.notepad.model.ModelNote
+import com.example.notepad.roomDb.DataBase
 import com.example.notepad.util.BaseInterface
 import com.example.notepad.util.MyAdapter
 import kotlinx.android.synthetic.main.activity_save.view.*
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity(), BaseInterface {
         initListen()
         setupRecyclerView()
         setToolbar()
+
     }
 
     private fun setupRecyclerView() = with(recyclerView) {

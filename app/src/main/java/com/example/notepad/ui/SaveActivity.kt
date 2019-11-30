@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -50,6 +51,9 @@ class SaveActivity : AppCompatActivity(), BaseInterface {
     private fun setToolbar() {
         mToolbar.title = "SaveNote"
         setSupportActionBar(mToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
     }
 
 
@@ -67,6 +71,17 @@ class SaveActivity : AppCompatActivity(), BaseInterface {
             Toast.makeText(this, "noEmpty", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        android.R.id.home ->{
+            finish()
+            true
+        }
+
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 }
 
